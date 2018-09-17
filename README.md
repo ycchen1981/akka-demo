@@ -22,12 +22,12 @@ cd akka-demo
 ### Build from the Command Line
 To compile, test, build all jars, distribution zips, and docs use:
 
-Windows:
+Linux:
 ```
 ./gradlew build
 ```
 
-Linux:
+Windows:
 ```
 gradlew.bat build
 ```
