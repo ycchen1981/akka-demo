@@ -42,7 +42,7 @@ public class AggregatorActor extends AbstractActor {
 				String word = words.nextToken().toLowerCase();
 				
 				word = word.replaceAll("^([^a-zA-Z0-9_-]*)(.*?)([^a-zA-Z0-9_-]*)$", "$2")
-						.replaceAll("^(.*?)('s|¡¦s*)$", "$1");
+						.replaceAll("^(.*?)('s*)$", "$1");
 				
 				if (!word.matches(".*?[\\w\\d]+.*?")) {
 					continue;
