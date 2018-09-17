@@ -32,8 +32,7 @@ public class FileScannerActor extends AbstractActor {
 		add("txt");
 	}});
 	
-	private int totalFileCnt = 0;
-	private int processedFileCnt = 0;
+	private volatile int totalFileCnt = 0, processedFileCnt = 0;
 	
 	@Override
 	public Receive createReceive() {
