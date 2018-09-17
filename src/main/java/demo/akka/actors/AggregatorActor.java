@@ -22,15 +22,17 @@ public class AggregatorActor extends AbstractActor {
 				Thread.sleep(10);
 			}
 			
+			String result = reducedMap.entrySet().stream()
+					.sorted(
+							Map.Entry.<String, Integer>comparingByValue()
+							.reversed()
+							.thenComparing(Map.Entry.comparingByKey()))
+					.map(kv -> String.format("%s = %d", kv.getKey(), kv.getValue()))
+					.collect(Collectors.joining("\n\t", "\t", ""));
+			
 			System.out.println(String.format("The file name: %s, results =>\n%s",
 					m.getFileName(),
-					reducedMap.entrySet().stream()
-						.sorted(
-								Map.Entry.<String, Integer>comparingByValue()
-								.reversed()
-								.thenComparing(Map.Entry.comparingByKey()))
-						.map(kv -> String.format("%s = %d", kv.getKey(), kv.getValue()))
-						.collect(Collectors.joining("\n\t", "\t", ""))));
+					result));
 			
 			getSender().tell(new AggregatorMessage(m.getTraceId(), AggregatorMessage.State.DONE, null, m.getFileName()), self());
 		})

@@ -1,4 +1,3 @@
-
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
@@ -8,7 +7,8 @@ plugins {
 
 mainClassName = 'demo.akka.WordCountApplication'
 
-version = '0.0.1'
+group = 'demo.akka'
+version = '0.0.1-SNAPSHOT'
 
 compileJava   {
     sourceCompatibility = JavaVersion.VERSION_1_8

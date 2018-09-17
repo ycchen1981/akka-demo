@@ -12,13 +12,50 @@ The artifect will scan the current folder to parse files with extension '.txt' o
 - JDK 8
 - Gradle > 4.4
 
-### Build project
+### Get the Source Code
 
-	gradle build
+```
+git clone https://github.com/ycchen1981/akka-demo.git
+cd akka-demo
+```
+
+### Build from the Command Line
+To compile, test, build all jars, distribution zips, and docs use:
+
+Windows:
+```
+./gradlew build
+```
+
+Linux:
+```
+gradlew.bat build
+```
 
 ### Build executable jar
+```
+gradle fatJar
+```
 
-	gradle fatJar
+Once built successfully, you could find the artifact **akka-demo-[version]-SNAPSHOT.jar** in the folder **./akka-demo/build/libs**.
+Copy this artifact to the target folder and execute it to scan files:
+
+```
+java -jar ./akka-demo-0.0.1.jar
+
+2 file(s) will be processed and displayed respectively.
+The file name: meeting memo.txt, results =>
+        vmware = 2
+        vsan = 2
+......
+The file name: intel white paper.txt, results =>
+        iteration = 32
+        intel = 17
+        2000 = 11
+......
+All 2 file(s) were processed and displayed respectively.
+[INFO] [09/17/2018 11:09:15.402] [WordCount-akka.actor.default-dispatcher-3] [akka://WordCount/user/terminator] akka://WordCount/user/fileScanner has terminated, shutting down system
+```
 
 ## License
 

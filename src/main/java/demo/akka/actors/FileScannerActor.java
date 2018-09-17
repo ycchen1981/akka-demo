@@ -46,9 +46,10 @@ public class FileScannerActor extends AbstractActor {
 					.collect(Collectors.toList());
 			
 			if (CollectionUtils.isEmpty(logFiles)) {
+				String fileExtsStr = fileExts.stream().collect(Collectors.joining("' or '", "'", "'"));
 				System.out.println(String.format("The target folder [%s] does not have files with the extension %s.",
 						target.toString(),
-						fileExts.stream().collect(Collectors.joining("' or '", "'", "'"))));
+						fileExtsStr));
 				
 				getContext().stop(self());
 				return;
